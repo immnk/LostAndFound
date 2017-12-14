@@ -7,11 +7,12 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="LostAndFound" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,10 +21,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ycz-Y3-IU1">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ycz-Y3-IU1" secondAttribute="height" multiplier="125:201" id="Sd2-NK-PnI"/>
+                                    <constraint firstAttribute="width" secondItem="ycz-Y3-IU1" secondAttribute="height" multiplier="375:667" id="DPO-10-7tw"/>
                                 </constraints>
                             </imageView>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeN-A2-OdO" userLabel="GradientBackground">
@@ -57,7 +58,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yle-7h-24t" firstAttribute="centerY" secondItem="ycz-Y3-IU1" secondAttribute="centerY" constant="-32" id="3ga-cF-7Al"/>
+                            <constraint firstItem="yle-7h-24t" firstAttribute="centerY" secondItem="ycz-Y3-IU1" secondAttribute="centerY" id="3ga-cF-7Al"/>
                             <constraint firstItem="ycz-Y3-IU1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4RI-qm-LIT"/>
                             <constraint firstItem="jeN-A2-OdO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6y3-om-KM6"/>
                             <constraint firstItem="yle-7h-24t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gcw-bi-aqA"/>
@@ -70,7 +71,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="8l6-3t-nfB"/>
+                    <navigationItem key="navigationItem" id="8l6-3t-nfB"/>
                     <connections>
                         <outlet property="pinTextField" destination="Wxg-ve-plZ" id="BSu-op-4KQ"/>
                     </connections>
@@ -94,14 +95,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8z-na-Vtr" customClass="GradientView" customModule="LostAndFound" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="StartColor">
                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feG-pT-YKJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Manikanta!" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="feG-pT-YKJ" userLabel="WelcomeLabel">
                                         <rect key="frame" x="8" y="8" width="359" height="31.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,17 +112,18 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="4eE-Y8-4is" firstAttribute="top" secondItem="uPB-qG-gjc" secondAttribute="top" id="5Tb-x7-Abt"/>
-                                    <constraint firstAttribute="trailing" secondItem="feG-pT-YKJ" secondAttribute="trailing" constant="8" id="97q-NV-6UA"/>
-                                    <constraint firstItem="feG-pT-YKJ" firstAttribute="leading" secondItem="uPB-qG-gjc" secondAttribute="leading" constant="8" id="9MP-3W-Pu0"/>
                                     <constraint firstAttribute="height" constant="216" id="ATo-Yd-nJH"/>
-                                    <constraint firstItem="feG-pT-YKJ" firstAttribute="top" secondItem="uPB-qG-gjc" secondAttribute="top" constant="8" id="CAG-te-MfZ"/>
+                                    <constraint firstItem="feG-pT-YKJ" firstAttribute="top" secondItem="uPB-qG-gjc" secondAttribute="top" constant="8" id="I6j-Pr-CXF"/>
                                     <constraint firstItem="4eE-Y8-4is" firstAttribute="width" secondItem="uPB-qG-gjc" secondAttribute="width" id="Ioj-Am-LCh"/>
+                                    <constraint firstItem="feG-pT-YKJ" firstAttribute="leading" secondItem="uPB-qG-gjc" secondAttribute="leading" constant="8" id="JsB-Bi-AgX"/>
                                     <constraint firstItem="h8z-na-Vtr" firstAttribute="top" secondItem="uPB-qG-gjc" secondAttribute="top" id="MHj-Kv-Fs2"/>
                                     <constraint firstItem="4eE-Y8-4is" firstAttribute="leading" secondItem="uPB-qG-gjc" secondAttribute="leading" id="RkJ-K0-yEe"/>
-                                    <constraint firstItem="h8z-na-Vtr" firstAttribute="height" secondItem="uPB-qG-gjc" secondAttribute="height" id="SCz-cn-kpt"/>
                                     <constraint firstItem="4eE-Y8-4is" firstAttribute="height" secondItem="uPB-qG-gjc" secondAttribute="height" id="SzA-Pm-bak"/>
                                     <constraint firstItem="h8z-na-Vtr" firstAttribute="width" secondItem="uPB-qG-gjc" secondAttribute="width" id="ToJ-oF-c2c"/>
+                                    <constraint firstAttribute="trailing" secondItem="feG-pT-YKJ" secondAttribute="trailing" constant="8" id="Ynl-FC-Q4c"/>
                                     <constraint firstItem="h8z-na-Vtr" firstAttribute="leading" secondItem="uPB-qG-gjc" secondAttribute="leading" id="c6U-tN-Qgl"/>
+                                    <constraint firstAttribute="bottom" secondItem="h8z-na-Vtr" secondAttribute="bottom" constant="139" id="m6J-oy-kFg"/>
+                                    <constraint firstItem="feG-pT-YKJ" firstAttribute="top" secondItem="uPB-qG-gjc" secondAttribute="topMargin" id="u0E-mn-0oO"/>
                                 </constraints>
                             </view>
                         </subviews>

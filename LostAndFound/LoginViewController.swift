@@ -18,6 +18,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // Handle the text field’s user input through delegate callbacks.
         pinTextField.delegate = self
+        
+//        // Hide the navigation bar on this page
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,6 +73,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             os_log("couldnt find the view controller", log: OSLog.default, type: .debug)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavigationBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showNavigationBar()
     }
 
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class HomeViewController: UIViewController {
     
@@ -26,6 +27,23 @@ class HomeViewController: UIViewController {
         
         LoginBackground.image = UIImage(named: "morning")
         
+        os_log("testing date time")
+        let date = Date()
+        let calendar = Calendar.current
+        guard let hour = calendar.dateComponents([.hour, .minute], from: date).hour else {
+            fatalError("Couldn't get the hour of the date")
+        }
+        
+        switch hour {
+            case 6..<10:
+                LoginBackground.image = UIImage(named: "morning")
+            case 10..<17:
+                LoginBackground.image = UIImage(named: "noon")
+            case 17..<20:
+                LoginBackground.image = UIImage(named: "evening")
+            default:
+                LoginBackground.image = UIImage(named: "night")
+        }
     }
     
 }
