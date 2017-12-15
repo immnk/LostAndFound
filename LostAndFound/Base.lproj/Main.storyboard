@@ -27,21 +27,73 @@
                                     <constraint firstAttribute="width" secondItem="ycz-Y3-IU1" secondAttribute="height" multiplier="375:667" id="DPO-10-7tw"/>
                                 </constraints>
                             </imageView>
-                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeN-A2-OdO" userLabel="GradientBackground">
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeN-A2-OdO" userLabel="GradientBackground">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9G6-Qf-DlY">
+                                <rect key="frame" x="87.5" y="139" width="200" height="176.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Jcq-bS-eah"/>
+                                    <constraint firstAttribute="width" secondItem="9G6-Qf-DlY" secondAttribute="height" multiplier="754:666" id="hcF-y6-8nh"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yle-7h-24t">
-                                <rect key="frame" x="0.0" y="299.5" width="375" height="68"/>
+                                <rect key="frame" x="0.0" y="477" width="375" height="142"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your PIN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wxg-ve-plZ">
-                                        <rect key="frame" x="20" y="0.0" width="335" height="30"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LEQ-a3-xwz" userLabel="choiceControl">
+                                        <rect key="frame" x="123" y="0.0" width="129" height="29"/>
+                                        <segments>
+                                            <segment title="Login"/>
+                                            <segment title="Register"/>
+                                        </segments>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="choiceControlChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="dFi-wm-XMX"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFX-W5-EzX" userLabel="emailTextField" customClass="CustomTextField" customModule="LostAndFound" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="36" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="topPadding">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="bottomPadding">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Wxg-ve-plZ" userLabel="passwordTextField" customClass="CustomTextField" customModule="LostAndFound" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="74" width="335" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="topPadding">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="bottomPadding">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3H-Se-Vq8">
-                                        <rect key="frame" x="168.5" y="38" width="38" height="30"/>
+                                        <rect key="frame" x="168.5" y="112" width="38" height="30"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -52,18 +104,22 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Wxg-ve-plZ" secondAttribute="trailing" constant="20" id="KYl-Tt-pkB"/>
+                                    <constraint firstAttribute="trailing" secondItem="JFX-W5-EzX" secondAttribute="trailing" constant="20" id="g0I-JR-Lul"/>
+                                    <constraint firstItem="JFX-W5-EzX" firstAttribute="leading" secondItem="yle-7h-24t" secondAttribute="leading" constant="20" id="rh7-QV-4a0"/>
                                     <constraint firstItem="Wxg-ve-plZ" firstAttribute="leading" secondItem="yle-7h-24t" secondAttribute="leading" constant="20" id="x3P-8R-M5s"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yle-7h-24t" firstAttribute="centerY" secondItem="ycz-Y3-IU1" secondAttribute="centerY" id="3ga-cF-7Al"/>
                             <constraint firstItem="ycz-Y3-IU1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4RI-qm-LIT"/>
                             <constraint firstItem="jeN-A2-OdO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6y3-om-KM6"/>
+                            <constraint firstItem="9G6-Qf-DlY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9FI-xT-rHS"/>
                             <constraint firstItem="yle-7h-24t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gcw-bi-aqA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yle-7h-24t" secondAttribute="trailing" id="JY6-gl-7cr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jeN-A2-OdO" secondAttribute="trailing" id="MGq-ke-Bj9"/>
+                            <constraint firstItem="9G6-Qf-DlY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="QjU-tk-8r8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yle-7h-24t" secondAttribute="bottom" constant="48" id="Si9-eG-QrH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jeN-A2-OdO" secondAttribute="bottom" id="SuR-v1-AXj"/>
                             <constraint firstItem="jeN-A2-OdO" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="UNr-l1-e5s"/>
                             <constraint firstItem="ycz-Y3-IU1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="klz-WD-C6k"/>
@@ -73,7 +129,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="8l6-3t-nfB"/>
                     <connections>
-                        <outlet property="pinTextField" destination="Wxg-ve-plZ" id="BSu-op-4KQ"/>
+                        <outlet property="choiceControl" destination="LEQ-a3-xwz" id="H4E-DD-ab1"/>
+                        <outlet property="emailTextField" destination="JFX-W5-EzX" id="E1G-8d-b5J"/>
+                        <outlet property="loginButton" destination="g3H-Se-Vq8" id="JG2-e9-82H"/>
+                        <outlet property="passwordTextField" destination="Wxg-ve-plZ" id="BSu-op-4KQ"/>
+                        <segue destination="Qrg-mS-Ygl" kind="show" identifier="ShowHomeSegue" id="py5-2h-Eee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -142,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJZ-PT-RKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2016.8" y="30.134932533733135"/>
+            <point key="canvasLocation" x="2010" y="33"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q2v-5N-wDJ">
@@ -178,11 +238,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0HE-bI-Lsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1262.4000000000001" y="31.484257871064472"/>
+            <point key="canvasLocation" x="1044" y="508"/>
         </scene>
     </scenes>
     <resources>
         <image name="LoginBackground" width="375" height="500"/>
+        <image name="Logo" width="377" height="333"/>
         <image name="morning" width="380" height="253"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="py5-2h-Eee"/>
+    </inferredMetricsTieBreakers>
 </document>
