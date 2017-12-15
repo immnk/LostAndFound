@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>209315835358-g8gk8mjcj59lql3d620594kam0jm0kmo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.209315835358-g8gk8mjcj59lql3d620594kam0jm0kmo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBoE97hjECUVtaEMYTBsT91EBPlX_eJB8M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>209315835358</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.siriuscom.LostAndFound</string>
+	<key>PROJECT_ID</key>
+	<string>immanikanta</string>
+	<key>STORAGE_BUCKET</key>
+	<string>immanikanta.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:209315835358:ios:9207536ed397973f</string>
+	<key>DATABASE_URL</key>
+	<string>https://immanikanta.firebaseio.com</string>
+</dict>
+</plist>
