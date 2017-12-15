@@ -13,13 +13,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
     
-    @IBOutlet weak var emailTextField: CustomTextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var choiceControl: UISegmentedControl!
     @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Handle the text field’s user input through delegate callbacks.
         passwordTextField.delegate = self
@@ -35,11 +36,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func login(_ sender: UIButton) {
         // Hide the keyboard first
+        emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         
-        if(sender.currentTitle == "Login") {
-            
-        } else if(sender.currentTitle == "Register") {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            if(sender.currentTitle == Constants.LoginScreenConstants.LOGIN_CONST) {
+                os_log("logging in user")
+            } else if(sender.currentTitle == Constants.LoginScreenConstants.REGISTER_CONST) {
+                os_log("registering a user")
+                print("email: \(email) & password: \(password)")
+            }
+        } else {
             
         }
     }
@@ -48,11 +55,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         resetInputFields()
         
         if(sender.selectedSegmentIndex == 0) {
-            loginButton.setTitle("Login", for: .normal)
-//            loginButton.currentTitle = "Login"
+            loginButton.setTitle(Constants.LoginScreenConstants.LOGIN_CONST, for: .normal)
         } else if(sender.selectedSegmentIndex == 1) {
-            loginButton.setTitle("Register", for: .normal)
-//            loginButton.currentTitle = "Register"
+            loginButton.setTitle(Constants.LoginScreenConstants.REGISTER_CONST, for: .normal)
         } else {
             // There are no more controls in choice control segment
             // Show throw a runtime error if index is something
@@ -64,17 +69,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
-        textField.resignFirstResponder()
+        self.view.endEditing(true)
         
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
         os_log("text field editing session ended",log: OSLog.default, type: .debug)
         
-        // Data is entered and return is hit
-//        makeLoginCall()
     }
     
     // MARK: Private methods
@@ -92,14 +94,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     fileprivate func navigateToHomeView() {
         
         os_log("trying to navigate home", log: OSLog.default, type: .debug)
-        
         self.performSegue(withIdentifier: Constants.Segues.ShowHomeSegue, sender: self)
         
-//        if let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") {
-//            self.navigationController?.pushViewController(homeViewController, animated: true)
-//        } else {
-//            os_log("couldnt find the view controller", log: OSLog.default, type: .debug)
-//        }
     }
     
     func resetInputFields() {
@@ -107,6 +103,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.text = ""
     }
     
+    // MARK: Overridden methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideNavigationBar()

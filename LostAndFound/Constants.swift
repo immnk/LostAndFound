@@ -23,5 +23,9 @@ struct Constants {
         static let photoURL = "photoURL"
         static let imageURL = "imageURL"
     }
+    
+    struct LoginScreenConstants {
+        static let LOGIN_CONST = "Login"
+        static let REGISTER_CONST = "Register"
+    }
 }
-
