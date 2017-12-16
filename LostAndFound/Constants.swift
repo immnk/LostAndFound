@@ -14,6 +14,8 @@ struct Constants {
     
     struct Segues {
         static let ShowHomeSegue = "ShowHomeSegue"
+        static let ShowNewItemSegue = "NewItemSegue"
+        static let ShowItemDetailSegue = "ShowItemDetailSegue"
     }
     
     struct MessageFields {

@@ -52,11 +52,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     print(value ?? "")
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                     if success {
-                        _ = self.showMessagePrompt(title: "Sign in succesfull", message: "The user is signed in succesfully with firebase.") {
+                        _ = self.showMessagePrompt(title: "Sign in succesfull", message: "The user is signed in succesfully with firebase.") {(action) in
                             self.navigateToHomeView()
                         }
                     } else {
-                        _ = self.showMessagePrompt(title: "Sign in failed", message: "Check the logs for more info.") {
+                        _ = self.showMessagePrompt(title: "Sign in failed", message: "Check the logs for more info.") {(action) in
                             // Do nothing after showing alert
                         }
                     }
@@ -69,11 +69,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     print(value ?? "")
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                     if success {
-                        _ = self.showMessagePrompt(title: "Registration succesfull", message: "A new user has been registered for the user.") {
+                        _ = self.showMessagePrompt(title: "Registration succesfull", message: "A new user has been registered for the user.") { (action) in
                             // Do nothing after showing alert
                         }
                     } else {
-                        _ = self.showMessagePrompt(title: "Registration failed", message: "Check the logs for more info.") {
+                        _ = self.showMessagePrompt(title: "Registration failed", message: "Check the logs for more info.") { (action) in
                             // Do nothing after showing alert
                         }
                     }
@@ -162,10 +162,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Helper methods
     
-    func showMessagePrompt(title: String, message: String, completionHandler: @escaping () -> ()) ->  UIAlertController{
+    func showMessagePrompt(title: String, message: String, completionHandler: @escaping (UIAlertAction) -> ()) ->  UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: completionHandler)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: completionHandler))
+        self.present(alert, animated: true, completion: nil)
         
         return alert
     }
