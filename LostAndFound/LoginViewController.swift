@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import NVActivityIndicatorView
 import os.log
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
@@ -19,9 +20,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var choiceControl: UISegmentedControl!
     @IBOutlet weak var loginButton: UIButton!
     
+    var activityIndicatorView: NVActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicatorView = NVActivityIndicatorView(frame: self.accessibilityFrame)
         
         // Handle the text field’s user input through delegate callbacks.
         passwordTextField.delegate = self
@@ -43,8 +47,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let email = emailTextField.text, let password = passwordTextField.text {
             if(sender.currentTitle == Constants.LoginScreenConstants.LOGIN_CONST) {
                 os_log("logging in user")
+                activityIndicatorView.startAnimating()
                 self.signInUser(email: email, password: password, completionHandler: { (success, value) in
                     print(value ?? "")
+                    self.activityIndicatorView.stopAnimating()
                     if success {
                         _ = self.showMessagePrompt(title: "Sign in succesfull", message: "The user is signed in succesfully with firebase.")
                     } else {
@@ -54,8 +60,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else if(sender.currentTitle == Constants.LoginScreenConstants.REGISTER_CONST) {
                 os_log("registering a user")
                 print("email: \(email) & password: \(password)")
+                activityIndicatorView.startAnimating()
                 self.registerUser(email: email, password: password, completionHandler: { (success, value) in
                     print(value ?? "")
+                    self.activityIndicatorView.stopAnimating()
                     if success {
                         _ = self.showMessagePrompt(title: "Registration succesfull", message: "A new user has been registered for the user.")
                     } else {

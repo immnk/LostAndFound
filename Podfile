@@ -7,6 +7,7 @@ target 'LostAndFound' do
 
   # Pods for LostAndFound
   pod 'IQKeyboardManagerSwift'
+  pod 'NVActivityIndicatorView'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
 
