@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +16,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="LostAndFound" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="LostAndFound" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,18 +32,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9G6-Qf-DlY">
-                                <rect key="frame" x="88" y="95" width="200" height="177"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Jcq-bS-eah"/>
-                                    <constraint firstAttribute="width" secondItem="9G6-Qf-DlY" secondAttribute="height" multiplier="754:666" id="hcF-y6-8nh"/>
-                                </constraints>
-                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTp-2M-cH1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yle-7h-24t">
-                                        <rect key="frame" x="0.0" y="456.5" width="375" height="154"/>
+                                        <rect key="frame" x="0.0" y="505" width="375" height="154"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LEQ-a3-xwz" userLabel="choiceControl">
                                                 <rect key="frame" x="123" y="0.0" width="129" height="29"/>
@@ -59,41 +53,13 @@
                                                 <rect key="frame" x="20" y="40" width="335" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                                        <real key="value" value="16"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="topPadding">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomPadding">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Wxg-ve-plZ" userLabel="passwordTextField">
                                                 <rect key="frame" x="20" y="82" width="335" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                                        <real key="value" value="16"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="topPadding">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomPadding">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
+                                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3H-Se-Vq8">
                                                 <rect key="frame" x="168.5" y="124" width="38" height="30"/>
@@ -112,10 +78,19 @@
                                             <constraint firstAttribute="trailing" secondItem="Wxg-ve-plZ" secondAttribute="trailing" constant="20" id="iT1-ys-aRM"/>
                                         </constraints>
                                     </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9G6-Qf-DlY">
+                                        <rect key="frame" x="112.5" y="57" width="150" height="132.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="9G6-Qf-DlY" secondAttribute="height" multiplier="377:333" id="yTb-lg-Fpo"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="yle-7h-24t" firstAttribute="centerY" secondItem="rTp-2M-cH1" secondAttribute="centerY" constant="200" id="4j1-xt-PrS"/>
-                                    <constraint firstAttribute="bottom" secondItem="yle-7h-24t" secondAttribute="bottom" constant="20" id="519-hu-lNB"/>
+                                    <constraint firstItem="yle-7h-24t" firstAttribute="top" secondItem="rTp-2M-cH1" secondAttribute="top" constant="505" id="0QK-FO-cF9"/>
+                                    <constraint firstAttribute="bottom" secondItem="yle-7h-24t" secondAttribute="bottom" id="519-hu-lNB"/>
+                                    <constraint firstItem="9G6-Qf-DlY" firstAttribute="centerX" secondItem="rTp-2M-cH1" secondAttribute="centerX" id="KM1-Ba-cwA"/>
+                                    <constraint firstItem="9G6-Qf-DlY" firstAttribute="width" secondItem="rTp-2M-cH1" secondAttribute="width" multiplier="0.4" id="ODd-gC-v2V"/>
+                                    <constraint firstItem="9G6-Qf-DlY" firstAttribute="top" secondItem="rTp-2M-cH1" secondAttribute="top" constant="57" id="lrt-o0-AeB"/>
                                     <constraint firstItem="yle-7h-24t" firstAttribute="centerX" secondItem="rTp-2M-cH1" secondAttribute="centerX" id="osB-MC-sZ4"/>
                                     <constraint firstAttribute="trailing" secondItem="yle-7h-24t" secondAttribute="trailing" id="wg2-Cn-07b"/>
                                     <constraint firstItem="yle-7h-24t" firstAttribute="width" secondItem="rTp-2M-cH1" secondAttribute="width" id="yUT-vr-9JX"/>
@@ -124,17 +99,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ycz-Y3-IU1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4RI-qm-LIT"/>
+                            <constraint firstItem="ycz-Y3-IU1" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="4RI-qm-LIT"/>
                             <constraint firstItem="jeN-A2-OdO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6y3-om-KM6"/>
-                            <constraint firstItem="9G6-Qf-DlY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9FI-xT-rHS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jeN-A2-OdO" secondAttribute="trailing" id="MGq-ke-Bj9"/>
+                            <constraint firstItem="ycz-Y3-IU1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MbN-Oz-uuJ"/>
                             <constraint firstAttribute="trailing" secondItem="rTp-2M-cH1" secondAttribute="trailing" id="Pee-xG-f3J"/>
-                            <constraint firstItem="9G6-Qf-DlY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="QjU-tk-8r8"/>
                             <constraint firstItem="rTp-2M-cH1" firstAttribute="top" secondItem="ycz-Y3-IU1" secondAttribute="top" id="Qpr-N2-1SX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jeN-A2-OdO" secondAttribute="bottom" id="SuR-v1-AXj"/>
                             <constraint firstItem="jeN-A2-OdO" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="UNr-l1-e5s"/>
                             <constraint firstItem="rTp-2M-cH1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hMI-Ux-RRD"/>
-                            <constraint firstItem="ycz-Y3-IU1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="klz-WD-C6k"/>
+                            <constraint firstItem="ycz-Y3-IU1" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="klz-WD-C6k"/>
                             <constraint firstItem="rTp-2M-cH1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="r2W-zW-4Iq"/>
                             <constraint firstItem="ycz-Y3-IU1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wLG-nO-4IP"/>
                         </constraints>

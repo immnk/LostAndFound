@@ -47,11 +47,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let email = emailTextField.text, let password = passwordTextField.text {
             if(sender.currentTitle == Constants.LoginScreenConstants.LOGIN_CONST) {
                 os_log("logging in user")
-                activityIndicatorView.startAnimating()
+                self.showSpinner(message: "Authenticating...", timeout: 3000)
                 self.signInUser(email: email, password: password, completionHandler: { (success, value) in
                     print(value ?? "")
-                    self.activityIndicatorView.stopAnimating()
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                     if success {
+                        self.navigateToHomeView()
                         _ = self.showMessagePrompt(title: "Sign in succesfull", message: "The user is signed in succesfully with firebase.")
                     } else {
                         _ = self.showMessagePrompt(title: "Sign in failed", message: "Check the logs for more info.")
@@ -60,10 +61,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else if(sender.currentTitle == Constants.LoginScreenConstants.REGISTER_CONST) {
                 os_log("registering a user")
                 print("email: \(email) & password: \(password)")
-                activityIndicatorView.startAnimating()
+                self.showSpinner(message: "Registering user...", timeout: 3000)
                 self.registerUser(email: email, password: password, completionHandler: { (success, value) in
                     print(value ?? "")
-                    self.activityIndicatorView.stopAnimating()
+                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                     if success {
                         _ = self.showMessagePrompt(title: "Registration succesfull", message: "A new user has been registered for the user.")
                     } else {
@@ -161,6 +162,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         return alert
     }
+    
+    func showSpinner(message: String, timeout: Int) {
+        let activityData = ActivityData(message: message, type: NVActivityIndicatorType.ballPulseSync)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+    }
+    
     // MARK: Overridden methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

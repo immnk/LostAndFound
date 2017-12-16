@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import os.log
 
 class HomeViewController: UIViewController {
