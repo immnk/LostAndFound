@@ -117,7 +117,7 @@
                         <outlet property="emailTextField" destination="JFX-W5-EzX" id="E1G-8d-b5J"/>
                         <outlet property="loginButton" destination="g3H-Se-Vq8" id="JG2-e9-82H"/>
                         <outlet property="passwordTextField" destination="Wxg-ve-plZ" id="BSu-op-4KQ"/>
-                        <segue destination="wco-YJ-5g6" kind="show" identifier="ShowHomeSegue" id="qFA-bc-Pyr"/>
+                        <segue destination="wco-YJ-5g6" kind="show" identifier="ShowHomeSegue" customClass="SegueFromLeft" customModule="LostAndFound" customModuleProvider="target" id="qFA-bc-Pyr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -197,7 +197,7 @@
         <!--Add New Item-->
         <scene sceneID="zsR-gF-xmq">
             <objects>
-                <viewController id="2U7-jl-atf" sceneMemberID="viewController">
+                <viewController id="2U7-jl-atf" customClass="DetailViewController" customModule="LostAndFound" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mFY-mv-Bls">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,9 +245,13 @@
                                             </textView>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eYG-zA-dPR">
                                                 <rect key="frame" x="0.0" y="208" width="335" height="335"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="eYG-zA-dPR" secondAttribute="height" multiplier="1:1" id="Kwa-Tb-cln"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Q92-Tr-BX8" appends="YES" id="Urg-1l-DNC"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -278,11 +282,27 @@
                         <viewLayoutGuide key="safeArea" id="Axq-mi-Iue"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Item" id="hne-JS-lHo">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="6SL-cX-r1k"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="6SL-cX-r1k">
+                            <connections>
+                                <action selector="cancel:" destination="2U7-jl-atf" id="npB-Ic-UY5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="LSg-MX-3U3"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="sww-YA-V7c" id="EWa-Dh-OyP"/>
+                        <outlet property="photoImagePicker" destination="eYG-zA-dPR" id="DEj-5s-4cs"/>
+                        <outlet property="saveButton" destination="LSg-MX-3U3" id="eSZ-f5-Ize"/>
+                        <outlet property="titleTextField" destination="tDU-PH-URN" id="kef-j9-0RY"/>
+                        <outlet property="usernameLabel" destination="iky-7Q-HGg" id="g3p-Fq-RlQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySh-fR-Kry" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Q92-Tr-BX8">
+                    <connections>
+                        <action selector="selectImageFromGallery:" destination="2U7-jl-atf" id="Xfi-mV-Kk1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2461.5999999999999" y="1026.8365817091455"/>
         </scene>

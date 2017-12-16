@@ -19,6 +19,8 @@
 		2568FCEA1FE1F75700954CF0 /* LostAndFoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568FCE91FE1F75700954CF0 /* LostAndFoundTests.swift */; };
 		2568FCF71FE2096400954CF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568FCF61FE2096400954CF0 /* HomeViewController.swift */; };
 		2568FCF91FE241ED00954CF0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568FCF81FE241ED00954CF0 /* GradientView.swift */; };
+		257D13921FE592FF00C74E74 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D13911FE592FF00C74E74 /* SegueFromLeft.swift */; };
+		257D13941FE5944C00C74E74 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D13931FE5944C00C74E74 /* DetailViewController.swift */; };
 		66EFE2C1F33BCFEFD640EE07 /* Pods_LostAndFoundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1626F1DEF3CDBFD1FA8EF3EB /* Pods_LostAndFoundTests.framework */; };
 		E2DFC8952E890B2FA3B39910 /* Pods_LostAndFound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2626E83BEE03240E1573842 /* Pods_LostAndFound.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,8 @@
 		2568FCEB1FE1F75700954CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2568FCF61FE2096400954CF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2568FCF81FE241ED00954CF0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		257D13911FE592FF00C74E74 /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
+		257D13931FE5944C00C74E74 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		78FA38AA886F77542A92B65D /* Pods-LostAndFoundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LostAndFoundTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LostAndFoundTests/Pods-LostAndFoundTests.release.xcconfig"; sourceTree = "<group>"; };
 		F2626E83BEE03240E1573842 /* Pods_LostAndFound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LostAndFound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC907A2536B522EDDB93089 /* Pods-LostAndFound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LostAndFound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LostAndFound/Pods-LostAndFound.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 		253767961FE3ACA7001E0D6D /* Custom Controls */ = {
 			isa = PBXGroup;
 			children = (
+				257D13911FE592FF00C74E74 /* SegueFromLeft.swift */,
 				2568FCF81FE241ED00954CF0 /* GradientView.swift */,
 				253767941FE3AB77001E0D6D /* CustomTextField.swift */,
 			);
@@ -134,6 +139,7 @@
 				2568FCD41FE1F75700954CF0 /* AppDelegate.swift */,
 				2568FCD61FE1F75700954CF0 /* LoginViewController.swift */,
 				2568FCD81FE1F75700954CF0 /* Main.storyboard */,
+				257D13931FE5944C00C74E74 /* DetailViewController.swift */,
 				253767961FE3ACA7001E0D6D /* Custom Controls */,
 				2568FCF61FE2096400954CF0 /* HomeViewController.swift */,
 				253767931FE3A983001E0D6D /* Extensions */,
@@ -382,12 +388,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				257D13941FE5944C00C74E74 /* DetailViewController.swift in Sources */,
 				253767951FE3AB77001E0D6D /* CustomTextField.swift in Sources */,
 				2568FCD71FE1F75700954CF0 /* LoginViewController.swift in Sources */,
 				2568FCD51FE1F75700954CF0 /* AppDelegate.swift in Sources */,
 				2568FCF91FE241ED00954CF0 /* GradientView.swift in Sources */,
 				2568FCF71FE2096400954CF0 /* HomeViewController.swift in Sources */,
 				25555EE01FE265700079289D /* UIViewController.swift in Sources */,
+				257D13921FE592FF00C74E74 /* SegueFromLeft.swift in Sources */,
 				2535CD0C1FE2BDE400C6DEAE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

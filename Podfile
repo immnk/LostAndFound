@@ -10,6 +10,7 @@ target 'LostAndFound' do
   pod 'NVActivityIndicatorView'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
 
   target 'LostAndFoundTests' do
     inherit! :search_paths
