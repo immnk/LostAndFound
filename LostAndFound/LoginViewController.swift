@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 import os.log
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
@@ -42,9 +43,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let email = emailTextField.text, let password = passwordTextField.text {
             if(sender.currentTitle == Constants.LoginScreenConstants.LOGIN_CONST) {
                 os_log("logging in user")
+                self.signInUser(email: email, password: password, completionHandler: { (success, value) in
+                    print(value ?? "")
+                    if success {
+                        _ = self.showMessagePrompt(title: "Sign in succesfull", message: "The user is signed in succesfully with firebase.")
+                    } else {
+                        _ = self.showMessagePrompt(title: "Sign in failed", message: "Check the logs for more info.")
+                    }
+                })
             } else if(sender.currentTitle == Constants.LoginScreenConstants.REGISTER_CONST) {
                 os_log("registering a user")
                 print("email: \(email) & password: \(password)")
+                self.registerUser(email: email, password: password, completionHandler: { (success, value) in
+                    print(value ?? "")
+                    if success {
+                        _ = self.showMessagePrompt(title: "Registration succesfull", message: "A new user has been registered for the user.")
+                    } else {
+                        _ = self.showMessagePrompt(title: "Registration failed", message: "Check the logs for more info.")
+                    }
+                })
+                
             }
         } else {
             
@@ -86,9 +104,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         completion(true, nil)
     }
     
-    func registerUser(email: String, password: String, completionHandler: (_ success: Bool, _ object: AnyObject?) -> ()) {
-        
-        completionHandler(true, nil)
+    func registerUser(email: String, password: String, completionHandler: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            if let error = error {
+                print("user registration failed. error")
+                print(error)
+                completionHandler(false, error as AnyObject)
+            } else {
+                print("new user registration")
+                print(user ?? "")
+                completionHandler(true, user as AnyObject)
+            }
+        }
+    }
+    
+    func signInUser(email: String, password: String, completionHandler: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if let error = error {
+                print("user sign in failed. error")
+                print(error)
+                completionHandler(false, error as AnyObject)
+            } else {
+                print("new user signed in")
+                print(user ?? "")
+                completionHandler(true, user as AnyObject)
+            }
+        }
     }
     
     fileprivate func navigateToHomeView() {
@@ -103,6 +144,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.text = ""
     }
     
+    // MARK: Helper methods
+    
+    func showMessagePrompt(title: String, message: String) ->  UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        return alert
+    }
     // MARK: Overridden methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
