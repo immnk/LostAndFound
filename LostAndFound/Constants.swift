@@ -20,7 +20,7 @@ struct Constants {
     
     struct MessageFields {
         static let name = "name"
-        static let title = "title"
+        static let TITLE_KEY = "title"
         static let description = "description"
         static let photoURL = "photoURL"
         static let imageURL = "imageURL"
@@ -29,5 +29,9 @@ struct Constants {
     struct LoginScreenConstants {
         static let LOGIN_CONST = "Login"
         static let REGISTER_CONST = "Register"
+    }
+    
+    struct HomeScreenConstants {
+        static let LostItemCellIdentifier = "LostItemViewCell"
     }
 }

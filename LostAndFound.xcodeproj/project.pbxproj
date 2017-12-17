@@ -21,6 +21,7 @@
 		2568FCF91FE241ED00954CF0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568FCF81FE241ED00954CF0 /* GradientView.swift */; };
 		257D13921FE592FF00C74E74 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D13911FE592FF00C74E74 /* SegueFromLeft.swift */; };
 		257D13941FE5944C00C74E74 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D13931FE5944C00C74E74 /* DetailViewController.swift */; };
+		25B0FF161FE67A55001C545C /* LostItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0FF151FE67A55001C545C /* LostItemTableViewCell.swift */; };
 		66EFE2C1F33BCFEFD640EE07 /* Pods_LostAndFoundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1626F1DEF3CDBFD1FA8EF3EB /* Pods_LostAndFoundTests.framework */; };
 		E2DFC8952E890B2FA3B39910 /* Pods_LostAndFound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2626E83BEE03240E1573842 /* Pods_LostAndFound.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		2568FCF81FE241ED00954CF0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		257D13911FE592FF00C74E74 /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		257D13931FE5944C00C74E74 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		25B0FF151FE67A55001C545C /* LostItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostItemTableViewCell.swift; sourceTree = "<group>"; };
 		78FA38AA886F77542A92B65D /* Pods-LostAndFoundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LostAndFoundTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LostAndFoundTests/Pods-LostAndFoundTests.release.xcconfig"; sourceTree = "<group>"; };
 		F2626E83BEE03240E1573842 /* Pods_LostAndFound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LostAndFound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC907A2536B522EDDB93089 /* Pods-LostAndFound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LostAndFound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LostAndFound/Pods-LostAndFound.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,11 +139,10 @@
 				2535CD0B1FE2BDE400C6DEAE /* Constants.swift */,
 				25555EE11FE278D30079289D /* GoogleService-Info.plist */,
 				2568FCD41FE1F75700954CF0 /* AppDelegate.swift */,
-				2568FCD61FE1F75700954CF0 /* LoginViewController.swift */,
+				25AEF7CE1FE6411F002286E9 /* View Controllers */,
 				2568FCD81FE1F75700954CF0 /* Main.storyboard */,
-				257D13931FE5944C00C74E74 /* DetailViewController.swift */,
+				25B0FF151FE67A55001C545C /* LostItemTableViewCell.swift */,
 				253767961FE3ACA7001E0D6D /* Custom Controls */,
-				2568FCF61FE2096400954CF0 /* HomeViewController.swift */,
 				253767931FE3A983001E0D6D /* Extensions */,
 				2568FCDB1FE1F75700954CF0 /* Assets.xcassets */,
 				2568FCDD1FE1F75700954CF0 /* LaunchScreen.storyboard */,
@@ -157,6 +158,16 @@
 				2568FCEB1FE1F75700954CF0 /* Info.plist */,
 			);
 			path = LostAndFoundTests;
+			sourceTree = "<group>";
+		};
+		25AEF7CE1FE6411F002286E9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2568FCD61FE1F75700954CF0 /* LoginViewController.swift */,
+				257D13931FE5944C00C74E74 /* DetailViewController.swift */,
+				2568FCF61FE2096400954CF0 /* HomeViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		2FB745FBE5B305CA87780413 /* Frameworks */ = {
@@ -351,6 +362,8 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -359,6 +372,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B0FF161FE67A55001C545C /* LostItemTableViewCell.swift in Sources */,
 				257D13941FE5944C00C74E74 /* DetailViewController.swift in Sources */,
 				253767951FE3AB77001E0D6D /* CustomTextField.swift in Sources */,
 				2568FCD71FE1F75700954CF0 /* LoginViewController.swift in Sources */,

@@ -11,6 +11,8 @@ target 'LostAndFound' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/Crash'
+  pod 'Firebase/Database'
 
   target 'LostAndFoundTests' do
     inherit! :search_paths
