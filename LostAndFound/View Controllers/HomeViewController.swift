@@ -31,7 +31,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView())
         
         setLoginBackground()
-//        self.clientTable.register(ItemTableViewCell.self, forCellReuseIdentifier: Constants.HomeScreenConstants.LostItemCellIdentifier)
         
         configureDatabase()
         configureStorage()
@@ -144,7 +143,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ref = Database.database().reference()
         
         //Listen for new messages in the Firebase database
-        _refHandle = self.ref.child("messages").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+        _refHandle = self.ref.child("messages").queryOrdered(byChild: "timestamp").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
             strongSelf.messages.append(snapshot)
             strongSelf.clientTable.insertRows(at: [IndexPath(row: strongSelf.messages.count-1, section: 0)], with: .automatic)

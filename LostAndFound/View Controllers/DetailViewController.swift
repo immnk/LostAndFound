@@ -176,6 +176,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     
     func sendMessage(withData data: [String: String]) {
         var mdata = data
+        mdata[Constants.MessageFields.TIMESTAMP_KEY] = String((Date().timeIntervalSince1970 * 1000.0).rounded())
         mdata[Constants.MessageFields.name] = Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.email
         if let photoURL = Auth.auth().currentUser?.photoURL {
             mdata[Constants.MessageFields.photoURL] = photoURL.absoluteString

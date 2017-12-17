@@ -59,12 +59,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         
-        if let email = emailTextField.text, let password = passwordTextField.text {
+        if let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty{
             if(sender.currentTitle == Constants.LoginScreenConstants.LOGIN_CONST) {
                 os_log("logging in user")
                 self.showSpinner(message: "Authenticating...", timeout: 3000)
                 self.signInUser(email: email, password: password, completionHandler: { (success, value) in
-                    print(value ?? "")
+                    self.saveCredentials(creds: Login(username: email, password: password))
                     NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                     self.afterSignInSuccess(email, success, value)
                 })
@@ -84,7 +84,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 })
             }
         } else {
-            
+            let emptyAlert = AlertSet(buttonTitle: "Ok", completionHandler: self.emptyHandler)
+            _ = self.showMessagePrompt(title: "Fields missing", message: "Please fill in the username and email before hitting the login button.", actions: [emptyAlert])
         }
     }
     

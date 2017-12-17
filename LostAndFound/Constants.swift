@@ -19,6 +19,7 @@ struct Constants {
     }
     
     struct MessageFields {
+        static let TIMESTAMP_KEY = "timestamp"
         static let name = "name"
         static let TITLE_KEY = "title"
         static let DESCRIPTION_KEY = "description"
