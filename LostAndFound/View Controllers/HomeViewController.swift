@@ -18,13 +18,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var messages: [DataSnapshot]! = []
     fileprivate var _refHandle: DatabaseHandle!
     var storageRef: StorageReference!
-
+    
     @IBOutlet weak var clientTable: UITableView!
     @IBOutlet weak var LoginBackground: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Initial set up to remove back button
         
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         configureDatabase()
         configureStorage()
-
+        
     }
     
     deinit {
@@ -46,9 +46,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - Actions
     
-//    @IBAction func unwindToItemsList(sender: UIStoryboardSegue) {
-//
-//    }
+    //    @IBAction func unwindToItemsList(sender: UIStoryboardSegue) {
+    //
+    //    }
     
     // MARK: - Table delegate methods
     
@@ -66,7 +66,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Unpack message from Firebase DataSnapshot
         let messageSnapshot: DataSnapshot! = self.messages[indexPath.row]
         guard let message = messageSnapshot.value as? [String:String] else { return cell }
-        let name = message[Constants.MessageFields.name] ?? ""
+        
+        cell.textLabel?.text = message[Constants.MessageFields.TITLE_KEY] ?? ""
+        // cell.descriptionTextView.text = message[Constants.MessageFields.description] ?? ""
+        
+        // TODO: Have no use right now. We have to fit it somewhere.
+        // _ = message[Constants.MessageFields.name] ?? ""
+        
         if let imageURL = message[Constants.MessageFields.imageURL] {
             if imageURL.hasPrefix("gs://") {
                 Storage.storage().reference(forURL: imageURL).getData(maxSize: INT64_MAX) {(data, error) in
@@ -82,19 +88,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else if let URL = URL(string: imageURL), let data = try? Data(contentsOf: URL) {
                 cell.imageView?.image = UIImage.init(data: data)
             }
-            cell.textLabel?.text = "sent by: \(name)"
         } else {
-            let text = message[Constants.MessageFields.TITLE_KEY] ?? ""
-            cell.textLabel?.text = name + ": " + text
-            cell.imageView?.image = UIImage(named: "Placceholder")
+            cell.imageView?.image = UIImage(named: "Placeholder")
             if let photoURL = message[Constants.MessageFields.photoURL], let URL = URL(string: photoURL),
                 let data = try? Data(contentsOf: URL) {
                 cell.imageView?.image = UIImage(data: data)
             }
         }
+        
         return cell
     }
-
+    
     // MARK: - Private Methods
     
     private func setLoginBackground() {
