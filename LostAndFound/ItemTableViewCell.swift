@@ -1,5 +1,5 @@
 //
-//  LostItemTableViewCell.swift
+//  ItemTableViewCell.swift
 //  LostAndFound
 //
 //  Created by Manikanta Tankala on 12/17/17.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class LostItemTableViewCell: UITableViewCell {
+class ItemTableViewCell: UITableViewCell {
     
-    // MARK: - Properties
+    // MARK: Properties
+    @IBOutlet weak var titleText: UILabel!
+    @IBOutlet weak var descriptionText: UILabel!
+    @IBOutlet weak var previewImage: UIImageView!
     
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var preview: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

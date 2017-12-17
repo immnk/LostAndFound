@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView())
         
         setLoginBackground()
-        self.clientTable.register(LostItemTableViewCell.self, forCellReuseIdentifier: Constants.HomeScreenConstants.LostItemCellIdentifier)
+//        self.clientTable.register(ItemTableViewCell.self, forCellReuseIdentifier: Constants.HomeScreenConstants.LostItemCellIdentifier)
         
         configureDatabase()
         configureStorage()
@@ -62,13 +62,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue cell
-        let cell = self.clientTable .dequeueReusableCell(withIdentifier: Constants.HomeScreenConstants.LostItemCellIdentifier, for: indexPath)
+        guard let cell = self.clientTable .dequeueReusableCell(withIdentifier: Constants.HomeScreenConstants.LostItemCellIdentifier, for: indexPath) as? ItemTableViewCell else {
+            fatalError("Could not cast as custom cell.")
+        }
+        
         // Unpack message from Firebase DataSnapshot
         let messageSnapshot: DataSnapshot! = self.messages[indexPath.row]
         guard let message = messageSnapshot.value as? [String:String] else { return cell }
         
-        cell.textLabel?.text = message[Constants.MessageFields.TITLE_KEY] ?? ""
-        // cell.descriptionTextView.text = message[Constants.MessageFields.description] ?? ""
+        cell.titleText?.text = message[Constants.MessageFields.TITLE_KEY] ?? "No title provided"
+        cell.descriptionText?.text = message[Constants.MessageFields.DESCRIPTION_KEY] ?? "No description provided"
+        cell.previewImage?.image = UIImage(named: "Placeholder")
         
         // TODO: Have no use right now. We have to fit it somewhere.
         // _ = message[Constants.MessageFields.name] ?? ""
@@ -81,18 +85,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         return
                     }
                     DispatchQueue.main.async {
-                        cell.imageView?.image = UIImage.init(data: data!)
+                        cell.previewImage?.image = UIImage.init(data: data!)
                         cell.setNeedsLayout()
                     }
                 }
             } else if let URL = URL(string: imageURL), let data = try? Data(contentsOf: URL) {
-                cell.imageView?.image = UIImage.init(data: data)
+                cell.previewImage?.image = UIImage.init(data: data)
             }
         } else {
-            cell.imageView?.image = UIImage(named: "Placeholder")
             if let photoURL = message[Constants.MessageFields.photoURL], let URL = URL(string: photoURL),
                 let data = try? Data(contentsOf: URL) {
-                cell.imageView?.image = UIImage(data: data)
+                cell.previewImage?.image = UIImage.init(data: data)
             }
         }
         

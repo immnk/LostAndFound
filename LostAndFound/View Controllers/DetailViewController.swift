@@ -88,7 +88,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
         var data: [String:String] = [:]
         data[Constants.MessageFields.TITLE_KEY] = title
-        data[Constants.MessageFields.description] = descriptionTextView.text ?? ""
+        data[Constants.MessageFields.DESCRIPTION_KEY] = descriptionTextView.text ?? ""
         
         let image = photoImagePicker.image
         let imageData = UIImageJPEGRepresentation(image!, 0.8)
