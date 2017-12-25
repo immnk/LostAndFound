@@ -30,6 +30,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView())
         
+        self.clientTable.separatorStyle = .none
+        
         setLoginBackground()
         
         configureDatabase()
@@ -70,6 +72,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         guard let message = messageSnapshot.value as? [String:String] else { return cell }
         
         cell.titleText?.text = message[Constants.MessageFields.TITLE_KEY] ?? "No title provided"
+        cell.sentByText?.text = message[Constants.MessageFields.name] ?? "Anonymous"
         cell.descriptionText?.text = message[Constants.MessageFields.DESCRIPTION_KEY] ?? "No description provided"
         cell.previewImage?.image = UIImage(named: "Placeholder")
         
