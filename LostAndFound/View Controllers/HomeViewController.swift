@@ -111,7 +111,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         LoginBackground.image = UIImage(named: "morning")
         
-        os_log("testing date time")
         let date = Date()
         let calendar = Calendar.current
         guard let hour = calendar.dateComponents([.hour, .minute], from: date).hour else {

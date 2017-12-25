@@ -30,7 +30,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         titleTextField.delegate = self
         descriptionTextView.delegate = self
         
-        usernameLabel.text = Auth.auth().currentUser?.displayName ?? ""
+        usernameLabel.text = Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.email
         
         updateSaveButtonState()
         configureDatabase()
